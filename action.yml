@@ -5,7 +5,7 @@ branding:
   icon: 'package'
   color: 'blue'
 inputs:
-   platform:
+  platform:
     description: 'The platform where the voting will take place'
     required: false
     default: 'github'
