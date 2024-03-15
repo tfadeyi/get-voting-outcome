@@ -1,4 +1,3 @@
----
 name: get-voting-outcome
 author: tfadeyi
 description: 'Add a simple voting mechanism through github discussions'
@@ -37,7 +36,7 @@ runs:
     - ${{ inputs.platform }}
     - "--instance"
     - ${{ inputs.instance }}
-    - "--category"
+    - "--github.category"
     - ${{ inputs.category }}
     - "--github.repository"
     - ${{ inputs.repository }}
