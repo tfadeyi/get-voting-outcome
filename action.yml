@@ -1,0 +1,47 @@
+---
+name: get-voting-outcome
+author: tfadeyi
+description: 'Add a simple voting mechanism through github discussions'
+branding:
+  icon: 'package'
+  color: 'blue'
+inputs:
+  instance:
+    description: 'The instance unique identifier'
+    required: false
+    default: "${{ github.run_id }}"
+  # github specific flags
+  token:
+    description: 'The github auth token'
+    required: false
+    default: "${{ github.token }}"
+  category:
+    description: 'The github discussion category name, i.e: general'
+    required: true
+    default: ''
+  owner:
+    description: 'The name of the repository owner'
+    required: false
+    default: "${{ github.repository_owner }}"
+  repository:
+    description: 'The name of the repository'
+    required: false
+    default: "${{ github.repository }}"
+runs:
+  using: 'docker'
+  image: 'docker://ghcr.io/tfadeyi/governance'
+  args:
+    - "vote"
+    - "monitor"
+    - "--platform"
+    - ${{ inputs.platform }}
+    - "--instance"
+    - ${{ inputs.instance }}
+    - "--category"
+    - ${{ inputs.category }}
+    - "--github.repository"
+    - ${{ inputs.repository }}
+    - "--github.repository-owner"
+    - ${{ inputs.owner }}
+    - "--github.token"
+    - ${{ inputs.token }}
