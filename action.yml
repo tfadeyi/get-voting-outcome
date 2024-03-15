@@ -5,6 +5,10 @@ branding:
   icon: 'package'
   color: 'blue'
 inputs:
+   platform:
+    description: 'The platform where the voting will take place'
+    required: false
+    default: 'github'
   instance:
     description: 'The instance unique identifier'
     required: false
@@ -17,7 +21,7 @@ inputs:
   category:
     description: 'The github discussion category name, i.e: general'
     required: true
-    default: ''
+    default: 'generic'
   owner:
     description: 'The name of the repository owner'
     required: false
