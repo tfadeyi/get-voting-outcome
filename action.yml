@@ -18,8 +18,8 @@ inputs:
     description: 'The github auth token'
     required: false
     default: "${{ github.token }}"
-  category:
-    description: 'The github discussion category name, i.e: general'
+  labels:
+    description: 'The github issue label name to monitor, i.e: election'
     required: true
     default: 'generic'
   owner:
@@ -35,13 +35,13 @@ runs:
   image: 'docker://ghcr.io/tfadeyi/governance'
   args:
     - "vote"
-    - "monitor"
+    - "monitoring"
     - "--platform"
     - ${{ inputs.platform }}
     - "--instance"
     - ${{ inputs.instance }}
-    - "--github.category"
-    - ${{ inputs.category }}
+    - "--github.labels"
+    - ${{ inputs.labels }}
     - "--github.repository"
     - ${{ inputs.repository }}
     - "--github.repository-owner"
