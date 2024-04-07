@@ -4,6 +4,9 @@ description: 'Add a simple voting mechanism through github discussions'
 branding:
   icon: 'package'
   color: 'blue'
+outputs:
+  outcome:
+    description: 'The outcomes of all concluded votes'
 inputs:
   voting:
     description: 'Voting methodology to use for the vote'
